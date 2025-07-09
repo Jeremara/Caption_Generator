@@ -22,11 +22,11 @@ def generate_caption(payload):
 # Function to create HTML markup for favicon and text
 def display_image(image_path, width=100):
     image = Image.open(image_path)
-    st.image(image, width=width, use_column_width=False)
+    st.image(image, width=width, use_container_width=False)
 
 
 # set image as navbar
-st.image('images/Caption_Generator.png', use_column_width=True)
+st.image('images/Caption_Generator.png', use_container_width=True)
 
 
 # Define paths to the PNG images and text
@@ -40,7 +40,7 @@ twitter_image_path = "images/twitter.png"
 st.write("<h3 style='text-align: center;'>Get the Best Caption to Spark your Image on the following Social Media "
          "Platform</h3>", unsafe_allow_html=True)
 st.image([facebook_image_path, whatApps_image_path, instagram_image_path, twitter_image_path],
-         width=50, use_column_width=False)
+         width=50, use_container_width=False)
 
 # creating a upload section for users
 file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
@@ -49,7 +49,7 @@ file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
 if file:
     col1, col2 = st.columns(2)
     with col1:
-        st.image(file, use_column_width=True)
+        st.image(file, use_container_width=True)
     with col2:
         with st.spinner("Generating Semantics....."):
             semantics = generate_semantics(file)
